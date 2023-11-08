@@ -52,6 +52,8 @@ public interface X4 {
     void func();
 }
 ```
+
+
 2. Use `java.lang.FunctionalInterface` annotation so that compiler check if it matches the criteria.
 
 ```java
