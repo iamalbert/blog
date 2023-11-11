@@ -1,5 +1,9 @@
 ---
 title: Java functional interface
+categories:
+    - Programming
+tags:
+    - java
 ---
 
 ## Defined Interfaces in `java.util.function`
