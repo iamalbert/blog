@@ -18,11 +18,9 @@ Compared to other languages like JavaScript, Python, and C++, Java lambda expres
 - **You can't use bound variables** (e.g., captured variables in C++ or upvalues in Lua) unless they are declared as `final`. Therefore, it's not easy to make closure or higher-order functions.
 - **You can't throw checked exceptions**, unless the caller explicitly allows.
 
-However, because a lambda expression is compiled as instantiating an anonymous class, it's obvious that the compiler needs to figure out the name of the class, and that class must have exactly one abstract method.
+As lambda expressions are compiled as instantiating an anonymous class, apparently the compiler needs to figure out the name of the interface (of the anonymous class), and that interface must have exactly one abstract method. This leads to the most annoying limitation of Java lambdas: **Lambda expression must have an explicit target-type of `FunctionalInterface`**. 
 
-This leads to the most annoying limitation of Java lambdas: **Lambda expression must have an explicit target-type of `FunctionalInterface`**. 
-
-In other languages you can easily create an generic anonymous function.
+In other languages, you can easily create an anonymous generic function.
 
 ```py
 # Python
@@ -50,7 +48,7 @@ add(1.0, 2.0) // returns double(3.0)
 add("foo"s, "bar"s); // returns string("foobar")
 ```
 
-But in Java you simply can't do so. **Compiler is unable to infer the type of lambda expression**, which must be specified during declaration. This is the only case where a value is not convertible to `Object`, even `var` does not work.
+But in Java you simply can't do so. **Compiler is unable to infer the type of lambda expression**. It must be specified during declaration. This is probably the only case where a value is not convertible to `Object`, even `var` does not work here.
 
 ```java 
 Object add = (x,y) -> x + y; 
@@ -60,14 +58,14 @@ var add = (x,y) -> x + y;
 // error: cannot infer type for local variable add
 ```
 
-You have to tell the compiler the number and types of arguments, and the type of the return value by using the correct class. standard library has kindly provide the most frequently-used [functional interfaces](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html).
+Users have to associate lambda expression with the correct interface so as to inform the compiler the number and types of the arguments and the type of the return value. Standard library kindly provides a few frequently-used [functional interfaces](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html) to pick from.
 
 ```java 
 BiFunction<Integer, Integer, Integer> addInteger = (x,y) -> x+y;
 BiFunction<String, String, String> addString = (x,y) -> x+y; 
 ```
 
-**You have to enumerate all arguments for lambda types not in the standard library**. For example, to represents a function that accepts four arguments and produces a result, you have to declare the corresponding interface first.
+**You have to enumerate all arguments for lambda types not in the standard library**. For example, to represents a function that accepts four arguments and produces one result, you have to declare the corresponding interface first.
 
 ```java
 public interface QuadFunction <T1, T2, T3, T4, R> {
@@ -81,14 +79,21 @@ Just think how tedious it could be when there are many arguments.
 
 
 On the other hand, **it is a compile-error to convert a lambda into a different functional interface**, even if they represent the same function. For example, a function taking one integer and returning a boolean, can be represented as
-`Function<Integer, Boolean>` or `Predicate<Integer>` but unfortunately these two types are not compatible with each other, because they have different abstract method names.
+`Function<Integer, Boolean>` or `Predicate<Integer>`. But unfortunately these two types are not compatible with each other, because they have different names of their abstract methods.
 
 ```java 
 Function<Integer, Boolean> isZero = x -> x != 0;
-
 Predicate<Integer> isZero2 = isZero; 
-// error: incompatible types: Function<Integer,Boolean> cannot be converted to  Predicate<Integer>
+// error: incompatible types: Function<Integer,Boolean> cannot be converted to Predicate<Integer>
+
+Supplier<Child> makeObject = () -> new Child();
+Supplier<Parent> makeObject2 = makeObject;
+// error: incompatible types: Supplier<Child> cannot be converted to Supplier<Parent>
+
 ```
+
+
+
 
 # Defined Interfaces in `java.util.function`
 
