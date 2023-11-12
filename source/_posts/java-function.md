@@ -1,32 +1,110 @@
 ---
-title: Java functional interface
+title: Limitation of Java Lambdas
+date: Sat Sep 7 17:42:06 EST 2023
 categories:
-    - Programming
+    - programming
 tags:
     - java
 ---
 
+
+"First-class citizen" function means a function can be dynamically created and be passed around just like any other value. Java 8 added lambda expression that provide  "similar" feature by simplifying the creation of anonymous classes.
+
+Compared to other languages like JavaScript, Python, and C++, Java lambda expressions come with several limitations:
+
+- **You can't use bound variables** (e.g., captured variables in C++ or upvalues in Lua) unless they are declared as `final`. Therefore, it's not easy to make closure or higher-order functions.
+- **You can't throw checked exceptions**, unless the caller explicitly allows.
+
+However, because a lambda expression is compiled as instantiating an anonymous class, it's obvious that the compiler needs to figure out the name of the class, and that class must have exactly one abstract method.
+
+This leads to the most annoying limitation of Java lambdas: **Lambda expression must have an explicit target-type of `FunctionalInterface`**. 
+
+In other languages you can easily create an generic anonymous function.
+
+```py
+# Python
+add = lambda x, y: x + y 
+
+add(1, 2) # returns 3
+add(1.0, 2.0) # returns 3.0
+add('a', 'b') # returns 'ab'
+```
+
+```js
+const add = (x, y) => x + y;
+
+add(1, 2) # returns 3
+add(1.0, 2.0) # returns 3.0
+add('a', 'b') # returns 'ab'
+```
+
+```c++
+// C++14
+auto add = [](auto x, auto y){ return x + y;};
+
+add(1, 2); // returns int(3) 
+add(1.0, 2.0) // returns double(3.0)
+add("foo"s, "bar"s); // returns string("foobar")
+```
+
+But in Java you simply can't do so. **Compiler is unable to infer the type of lambda expression**, which must be specified during declaration. This is the only case where a value is not convertible to `Object`, even `var` does not work.
+
+```java 
+Object add = (x,y) -> x + y; 
+// error: incompatible types: Object is not a functional interface
+
+var add = (x,y) -> x + y;
+// error: cannot infer type for local variable add
+```
+
+You have to tell the compiler the number and types of arguments, and the type of the return value by using the correct class. standard library has kindly provide the most frequently-used [functional interfaces](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html).
+
+```java 
+BiFunction<Integer, Integer, Integer> addInteger = (x,y) -> x+y;
+BiFunction<String, String, String> addString = (x,y) -> x+y; 
+```
+
+**You have to enumerate all arguments for lambda types not in the standard library**. For example, to represents a function that accepts four arguments and produces a result, you have to declare the corresponding interface first.
+
+```java
+public interface QuadFunction <T1, T2, T3, T4, R> {
+    R apply(T1 t1, T2 t2, T3 t3, T4 t4);
+};
+
+QuadFunction<String, String, String, String, String> qf = (a,b,c,d)->a+b+c+d;
+```
+
+Just think how tedious it could be when there are many arguments.
+
+
+On the other hand, **it is a compile-error to convert a lambda into a different functional interface**, even if they represent the same function. For example, a function taking one integer and returning a boolean, can be represented as
+`Function<Integer, Boolean>` or `Predicate<Integer>` but unfortunately these two types are not compatible with each other, because they have different abstract method names.
+
+```java 
+Function<Integer, Boolean> isZero = x -> x != 0;
+
+Predicate<Integer> isZero2 = isZero; 
+// error: incompatible types: Function<Integer,Boolean> cannot be converted to  Predicate<Integer>
+```
+
 ## Defined Interfaces in `java.util.function`
 
-| Signature          | Name                 |  Method 
-|--------------------|----------------------|------------- 
-| ()     -> R        |  Supplier<R>         |  get      
-|                    |                      |
-| T      -> R        |  Function<T, R>      |  apply
-| T      -> boolean  |  Predicate<T>        |  test
-| T      -> Void     |  Consumer<T>         |  accept
-| T      -> T        |  UnaryOperator<T>    |  apply
-|                    |                      |
-| (T, U) -> R        |  BiFunction<T, U, R> |  apply
-| (T, U) -> boolean  |  BiPredicate<T, U>   |  test
-| (T, U) -> Void     |  BiConsumer<T, U>    |  apply
-| (T, T) -> T        |  BinaryOperator<T>   |  apply
-|                    |                      |
-| ()     -> Void     |  java.lang.Runnable  |  run
+| Signature           | Name                  | Method   | Comment        |
+| ------------------- | --------------------- | -------- | -------------- |
+| `T      -> R`       | `Function<T, R>`      | `apply`  |                |
+| `()     -> R`       | `Supplier<R>`         | `get`    |                |
+| `T      -> boolean` | `Predicate<T>`        | `test`   |                |
+| `T      -> Void`    | `Consumer<T>`         | `accept` |                |
+| `T      -> T`       | `UnaryOperator<T>`    | `apply`  |                |
+| `(T, U) -> R`       | `BiFunction<T, U, R>` | `apply`  |                |
+| `(T, U) -> boolean` | `BiPredicate<T, U>`   | `test`   |                |
+| `(T, U) -> Void`    | `BiConsumer<T, U>`    | `apply`  |                |
+| `(T, T) -> T`       | `BinaryOperator<T>`   | `apply`  |                |
+| `()     -> Void`    | `Runnable`            | `run`    | in `java.lang` |
 
-## Custom Functional interfaces
+## Custom functional interfaces
 
-1. Interface must have exactly one non-overriding abstract method.
+A functional interface must have *exactly one* non-overriding abstract method.
 
 
 ```java
@@ -47,7 +125,7 @@ public interface X3 {
     void func();
 
     @Override
-    String toString();
+    String toString(); // This means X3 supertype already has a default implementation
 };
 
 
@@ -58,7 +136,7 @@ public interface X4 {
 ```
 
 
-2. Use `java.lang.FunctionalInterface` annotation so that compiler check if it matches the criteria.
+Apply `java.lang.FunctionalInterface` annotation so that compiler could check if the interface meets the criteria.
 
 ```java
 @FunctionalInterface
@@ -73,5 +151,4 @@ public interface X5 {
 |      multiple non-overriding abstract methods found in interface X5
 |  @FunctionalInterface
 */
-
 ```
