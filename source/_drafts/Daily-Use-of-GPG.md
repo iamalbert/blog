@@ -2,6 +2,7 @@
 title: Daily Use of GPG
 categories:
     - privacy & anonymity 
+    - opsec
 tags:
     - gpg 
   
