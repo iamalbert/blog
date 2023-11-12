@@ -10,6 +10,9 @@ tags:
 
 "First-class citizen" function means a function can be dynamically created and be passed around just like any other value. Java 8 added lambda expression that provide  "similar" feature by simplifying the creation of anonymous classes.
 
+
+# Java Lambdas
+
 Compared to other languages like JavaScript, Python, and C++, Java lambda expressions come with several limitations:
 
 - **You can't use bound variables** (e.g., captured variables in C++ or upvalues in Lua) unless they are declared as `final`. Therefore, it's not easy to make closure or higher-order functions.
@@ -87,7 +90,7 @@ Predicate<Integer> isZero2 = isZero;
 // error: incompatible types: Function<Integer,Boolean> cannot be converted to  Predicate<Integer>
 ```
 
-## Defined Interfaces in `java.util.function`
+# Defined Interfaces in `java.util.function`
 
 | Signature           | Name                  | Method   | Comment        |
 | ------------------- | --------------------- | -------- | -------------- |
@@ -102,7 +105,7 @@ Predicate<Integer> isZero2 = isZero;
 | `(T, T) -> T`       | `BinaryOperator<T>`   | `apply`  |                |
 | `()     -> Void`    | `Runnable`            | `run`    | in `java.lang` |
 
-## Custom functional interfaces
+# Custom functional interfaces
 
 A functional interface must have *exactly one* non-overriding abstract method.
 
