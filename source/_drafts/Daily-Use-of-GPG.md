@@ -147,19 +147,38 @@ Recipient can verify the message is not forged or damaged.
 
 Signing data with sender's private key so that recipient could verify with sender's public key. 
 
+```sh
+
+gpg --clearsign file # generate "file.asc", signed document in ASCII format.
+gpg --sign file # generate "file.gpg", signed document in binary format.
+gpg --detach-sign file # generate "file.sig" that contains the signature only.
+
+```
+
+Use `-o-` to write to stdout instead of a new file.
+
+
 ## Encrypt document
 Recipient is the only one who can read the message.
 
-Encrypt the document with recipient's public key so that recipient can decrypt.
+Encrypt the document with **recipient's public key** so that recipient can decrypt it. You need to import recipient's public key first.
 
-
-
-
+```sh
+gpg --sign --encrypt --recipient recipient@example.com file
+```
 
 # Verify Incoming Message 
 
 ## Verify signature from others 
 
+```sh
+gpg --verify file.gpg # signed document
+gpg --verify file.asc # clear-signed document
+gpg --verify file.sig file # detached signature
+```
 
 ## Decrypt document from others
 
+```sh
+gpg --verify --decrypt file.gpg # generate `file`
+```
