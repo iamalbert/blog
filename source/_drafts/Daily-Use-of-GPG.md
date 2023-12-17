@@ -107,9 +107,37 @@ mQGNBGVQYHkBDADF1JkfvUEeZxp+dKxRpAELB7uAjOqkf305twVozoMv3ky76jqW
 gpg --import public.gpg
 ```
 
-# Sign GIT commit and tags
+# Use with Git
 
+## Sign Git commit and tags
 
+```sh
+git commit -S"KEY_ID"
+# or 
+git commit --gpg-sign=KEY_ID
+
+git tag -u KEY_ID
+```
+
+## Automatic signing commits and tag
+
+First, let Git know the key you are to use and to sign all commits and tags
+```sh
+git config --global user.signingkey KEY_ID
+git config --global commit.gpgsign true 
+git config --global tag.gpgSign true
+```
+
+If you see the following message, it's due to GPG needs tty information to show dialogue for passphrase
+```text
+error: gpg failed to sign the data
+fatal: failed to write commit object
+```
+
+Solution: add environment variable `$GPG_TTY` to `~/.zshrc` or `~/.bashrc`
+```sh
+export GPG_TTY=$(tty)
+```
 
 
 # Make Outgoing Messages
