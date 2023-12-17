@@ -1,12 +1,13 @@
 ---
 title: Daily Use of GPG
-categories:
-    - privacy & anonymity 
-    - opsec
 tags:
-    - gpg 
-  
+  - gpg
+categories:
+  - privacy & anonymity
+  - opsec
+date: 2023-12-16 22:20:16
 ---
+
 
 # Prepare GPG keys 
 
