@@ -1,8 +1,9 @@
 ---
 title: Install Windows11 Without Microsoft Account or Internet Access
 date: 2023-12-16 22:23:39
-tags:
+categories:
   - privacy & anonymity
+tags:
   - windows
 ---
 
@@ -16,5 +17,5 @@ To bypass that:
 
 3. Type `oobe\bypassnro` and press Enter.
 
-4. The computer will reboot and restart the installation. This time there would be an "I don't have Internet" option, and we can create a local account instead of log-in to Microsoft.
+4. The computer will reboot and restart the installation. This time there would be an "I don't have Internet" option, and we can create a local account instead of log-in to Microsoft.h
 
