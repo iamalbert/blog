@@ -24,7 +24,7 @@
 <meta property="og:description" content="Prepare GPG keysGenerate new keys1gpg --gen-key  Or you can use --full-gen-key to set encryption algorithm, key size, and expiry date. 1gpg --full-gen-key   Sample output 12345678910111213141516171819">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-17T03:20:16.000Z">
-<meta property="article:modified_time" content="2023-12-17T03:20:16.005Z">
+<meta property="article:modified_time" content="2023-12-17T03:25:37.669Z">
 <meta property="article:author" content="Wenlih Chuang">
 <meta property="article:tag" content="gpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -315,7 +315,7 @@
 
 <h1 id="Make-Outgoing-Messages"><a href="#Make-Outgoing-Messages" class="headerlink" title="Make Outgoing Messages"></a>Make Outgoing Messages</h1><h2 id="Sign-document"><a href="#Sign-document" class="headerlink" title="Sign document"></a>Sign document</h2><p>Recipient can verify the message is not forged or damaged. </p>
 <p>Signing data with sender’s private key so that recipient could verify with sender’s public key. </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><br>gpg --clearsign file <span class="hljs-comment"># generate &quot;file.asc&quot;, signed document in ASCII format.</span><br>gpg --sign file <span class="hljs-comment"># generate &quot;file.gpg&quot;, signed document in binary format.</span><br>gpg --detach-sign file <span class="hljs-comment"># generate &quot;file.sig&quot; that contains the signature only.</span><br><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">gpg --clearsign file <span class="hljs-comment"># generate &quot;file.asc&quot;, signed document in ASCII format.</span><br>gpg --sign file <span class="hljs-comment"># generate &quot;file.gpg&quot;, signed document in binary format.</span><br>gpg --detach-sign file <span class="hljs-comment"># generate &quot;file.sig&quot; that contains the signature only.</span><br></code></pre></td></tr></table></figure>
 
 <p>Use <code>-o-</code> to write to stdout instead of a new file.</p>
 <h2 id="Encrypt-document"><a href="#Encrypt-document" class="headerlink" title="Encrypt document"></a>Encrypt document</h2><p>Recipient is the only one who can read the message.</p>
