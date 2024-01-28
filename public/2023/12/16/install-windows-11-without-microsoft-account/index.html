@@ -16,22 +16,22 @@
   <meta name="author" content="Wenlih Chuang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Prepare GPG keysGenerate new keys1gpg --gen-key  Or you can use --full-gen-key to set encryption algorithm, key size, and expiry date. 1gpg --full-gen-key   Sample output 12345678910111213141516171819">
+    <meta name="description" content="Starting from Windows11, Microsoft require you to connect to Internet and log-in your Microsoft account during installation. To bypass that:  Make sure the machine is not conncted to Ethernet.  Press">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Daily Use of GPG">
-<meta property="og:url" content="https://iamalbert.github.io/blog/2023/12/16/daily-use-of-gpg/index.html">
+<meta property="og:title" content="Install Windows11 Without Microsoft Account or Internet Access">
+<meta property="og:url" content="https://iamalbert.github.io/blog/2023/12/16/install-windows-11-without-microsoft-account/index.html">
 <meta property="og:site_name" content="Albert&#39;s Blog">
-<meta property="og:description" content="Prepare GPG keysGenerate new keys1gpg --gen-key  Or you can use --full-gen-key to set encryption algorithm, key size, and expiry date. 1gpg --full-gen-key   Sample output 12345678910111213141516171819">
+<meta property="og:description" content="Starting from Windows11, Microsoft require you to connect to Internet and log-in your Microsoft account during installation. To bypass that:  Make sure the machine is not conncted to Ethernet.  Press">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-12-17T03:20:16.000Z">
-<meta property="article:modified_time" content="2024-01-28T06:30:49.482Z">
+<meta property="article:published_time" content="2023-12-17T03:23:39.000Z">
+<meta property="article:modified_time" content="2024-01-28T06:35:10.672Z">
 <meta property="article:author" content="Wenlih Chuang">
-<meta property="article:tag" content="gpg">
+<meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Daily Use of GPG - Albert&#39;s Blog</title>
+  <title>Install Windows11 Without Microsoft Account or Internet Access - Albert&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -185,7 +185,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Daily Use of GPG</span>
+            <span id="subtitle">Install Windows11 Without Microsoft Account or Internet Access</span>
           
         </div>
 
@@ -196,7 +196,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-16 22:20" pubdate>
+        <time datetime="2023-12-16 22:23" pubdate>
           December 16, 2023 pm
         </time>
       </span>
@@ -208,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.2k words
+          393 words
         
       </span>
     
@@ -219,7 +219,7 @@
         
         
         
-          27 mins
+          4 mins
         
       </span>
     
@@ -269,62 +269,24 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Daily Use of GPG</h1>
+            <h1 id="seo-header">Install Windows11 Without Microsoft Account or Internet Access</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Prepare-GPG-keys"><a href="#Prepare-GPG-keys" class="headerlink" title="Prepare GPG keys"></a>Prepare GPG keys</h1><h2 id="Generate-new-keys"><a href="#Generate-new-keys" class="headerlink" title="Generate new keys"></a>Generate new keys</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">gpg --gen-key<br></code></pre></td></tr></table></figure>
+                <p>Starting from Windows11, Microsoft require you to connect to Internet and log-in your Microsoft account during installation.</p>
+<p>To bypass that:</p>
+<ol>
+<li><p>Make sure the machine is not conncted to Ethernet.</p>
+</li>
+<li><p>Press <code>Shift</code> + <code>F10</code> and you should see a CMD terminal pops up.</p>
+</li>
+<li><p>Type <code>oobe\bypassnro</code> and press Enter.</p>
+</li>
+<li><p>The computer will reboot and restart the installation. This time there would be an “I don’t have Internet” option, and we can create a local account instead of log-in to Microsoft.</p>
+</li>
+</ol>
 
-<p>Or you can use <code>--full-gen-key</code> to set encryption algorithm, key size, and expiry date.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">gpg --full-gen-key <br></code></pre></td></tr></table></figure>
-
-<p>Sample output</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs text">Please select what kind of key you want:<br>   (1) RSA and RSA (default)<br>   (2) DSA and Elgamal<br>   (3) DSA (sign only)<br>   (4) RSA (sign only)<br>  (14) Existing key from card<br>Your selection? 1<br>RSA keys may be between 1024 and 4096 bits long.<br>What keysize do you want? (3072)<br>Requested keysize is 3072 bits<br>Please specify how long the key should be valid.<br>         0 = key does not expire<br>      &lt;n&gt;  = key expires in n days<br>      &lt;n&gt;w = key expires in n weeks<br>      &lt;n&gt;m = key expires in n months<br>      &lt;n&gt;y = key expires in n years<br>Key is valid for? (0) 0<br>Key does not expire at all<br>Is this correct? (y/N) y<br></code></pre></td></tr></table></figure>
-
-<h2 id="List-all-keys"><a href="#List-all-keys" class="headerlink" title="List all keys"></a>List all keys</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">gpg --list-key --keyid-format long<br></code></pre></td></tr></table></figure>
-
-<p>Sample Output</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">/home/user/.gnupg/pubring.kbx<br>----------------------------<br>pub   rsa3072/84C9694F05E46BFA 2023-12-16 [SC]<br>              ^^^^^^^^^^^^^^^^ This is key ID<br>      8A4111386A906867172C760684C9694F05E46BFA<br>uid                 [ultimate] Firstname Lastname (comment) &lt;example@gmail.com&gt;<br>sub   rsa3072/B848B278A951A079 2023-12-16 [E]<br></code></pre></td></tr></table></figure>
-
-<h2 id="Backup-keys"><a href="#Backup-keys" class="headerlink" title="Backup keys"></a>Backup keys</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">gpg --armor --export-options backup --export-secret-keys KEY_ID_OR_EMAIL &gt; private.gpg <br></code></pre></td></tr></table></figure>
-
-<p>Options are </p>
-<ul>
-<li><code>--armor</code> to output ASCII-based keys instead of binary format</li>
-<li><code>--export-options backup</code> to include meta data like ownertrust, signature, and user attributes.</li>
-</ul>
-<h2 id="Import-keys-from-backup"><a href="#Import-keys-from-backup" class="headerlink" title="Import keys from backup"></a>Import keys from backup</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ gpg --import-options restore --import private.gpg<br>$ gpg --edit-key your@id.here<br>gpg&gt; trust<br>Your decision? 5<br></code></pre></td></tr></table></figure>
-
-<h1 id="Share-public-key-with-others"><a href="#Share-public-key-with-others" class="headerlink" title="Share public key with others"></a>Share public key with others</h1><p>Some people post their public keys on their website. Some place it under <code>&lt;domain&gt;/.well-known/security.txt</code> or <code>&lt;domain&gt;/security.txt</code>.</p>
-<h2 id="Export-your-key"><a href="#Export-your-key" class="headerlink" title="Export your key"></a>Export your key</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ gpg --armor --<span class="hljs-built_in">export</span> email@example.com<br><br>-----BEGIN PGP PUBLIC KEY BLOCK-----<br><br>6HV8Q6put7QEsRjBq89z3Eh+H9XLBz9GXpGBs2J6C3gu2+hBzgagNxfJeMP45zJi<br>mQGNBGVQYHkBDADF1JkfvUEeZxp+dKxRpAELB7uAjOqkf305twVozoMv3ky76jqW<br>...<br>-----END PGP PUBLIC KEY BLOCK-----<br></code></pre></td></tr></table></figure>
-
-<h2 id="Import-keys-of-others"><a href="#Import-keys-of-others" class="headerlink" title="Import keys of others"></a>Import keys of others</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">gpg --import public.gpg<br></code></pre></td></tr></table></figure>
-
-<h1 id="Use-with-Git"><a href="#Use-with-Git" class="headerlink" title="Use with Git"></a>Use with Git</h1><h2 id="Sign-Git-commit-and-tags"><a href="#Sign-Git-commit-and-tags" class="headerlink" title="Sign Git commit and tags"></a>Sign Git commit and tags</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">git commit -S<span class="hljs-string">&quot;KEY_ID&quot;</span><br><span class="hljs-comment"># or </span><br>git commit --gpg-sign=KEY_ID<br><br>git tag -u KEY_ID<br></code></pre></td></tr></table></figure>
-
-<h2 id="Automatic-signing-commits-and-tag"><a href="#Automatic-signing-commits-and-tag" class="headerlink" title="Automatic signing commits and tag"></a>Automatic signing commits and tag</h2><p>First, let Git know the key you are to use and to sign all commits and tags</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">git config --global user.signingkey KEY_ID<br>git config --global commit.gpgsign <span class="hljs-literal">true</span> <br>git config --global tag.gpgSign <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
-
-<p>If you see the following message, it’s due to GPG needs tty information to show dialogue for passphrase</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">error: gpg failed to sign the data<br>fatal: failed to write commit object<br></code></pre></td></tr></table></figure>
-
-<p>Solution: add environment variable <code>$GPG_TTY</code> to <code>~/.zshrc</code> or <code>~/.bashrc</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">export</span> GPG_TTY=$(<span class="hljs-built_in">tty</span>)<br></code></pre></td></tr></table></figure>
-
-
-<h1 id="Make-Outgoing-Messages"><a href="#Make-Outgoing-Messages" class="headerlink" title="Make Outgoing Messages"></a>Make Outgoing Messages</h1><h2 id="Sign-document"><a href="#Sign-document" class="headerlink" title="Sign document"></a>Sign document</h2><p>Recipient can verify the message is not forged or damaged. </p>
-<p>Signing data with sender’s private key so that recipient could verify with sender’s public key. </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">gpg --clearsign file <span class="hljs-comment"># generate &quot;file.asc&quot;, signed document in ASCII format.</span><br>gpg --sign file <span class="hljs-comment"># generate &quot;file.gpg&quot;, signed document in binary format.</span><br>gpg --detach-sign file <span class="hljs-comment"># generate &quot;file.sig&quot; that contains the signature only.</span><br></code></pre></td></tr></table></figure>
-
-<p>Use <code>-o-</code> to write to stdout instead of a new file.</p>
-<h2 id="Encrypt-document"><a href="#Encrypt-document" class="headerlink" title="Encrypt document"></a>Encrypt document</h2><p>Recipient is the only one who can read the message.</p>
-<p>Encrypt the document with <strong>recipient’s public key</strong> so that recipient can decrypt it. You need to import recipient’s public key first.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">gpg --sign --encrypt --recipient recipient@example.com file<br></code></pre></td></tr></table></figure>
-
-<h1 id="Verify-Incoming-Message"><a href="#Verify-Incoming-Message" class="headerlink" title="Verify Incoming Message"></a>Verify Incoming Message</h1><h2 id="Verify-signature-from-others"><a href="#Verify-signature-from-others" class="headerlink" title="Verify signature from others"></a>Verify signature from others</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">gpg --verify file.gpg <span class="hljs-comment"># signed document</span><br>gpg --verify file.asc <span class="hljs-comment"># clear-signed document</span><br>gpg --verify file.sig file <span class="hljs-comment"># detached signature</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="Decrypt-document-from-others"><a href="#Decrypt-document-from-others" class="headerlink" title="Decrypt document from others"></a>Decrypt document from others</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">gpg --verify --decrypt file.gpg <span class="hljs-comment"># generate `file`</span><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -345,13 +307,6 @@
   <a href="/blog/categories/privacy-anonymity/" class="category-chain-item">privacy &amp; anonymity</a>
   
   
-    <span>></span>
-    
-  <a href="/blog/categories/privacy-anonymity/opsec/" class="category-chain-item">opsec</a>
-  
-  
-
-  
 
       </span>
     
@@ -364,7 +319,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/gpg/" class="print-no-link">#gpg</a>
+        <a href="/blog/tags/windows/" class="print-no-link">#windows</a>
       
     </div>
   
@@ -376,8 +331,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Daily Use of GPG</div>
-      <div>https://iamalbert.github.io/blog/2023/12/16/daily-use-of-gpg/</div>
+      <div>Install Windows11 Without Microsoft Account or Internet Access</div>
+      <div>https://iamalbert.github.io/blog/2023/12/16/install-windows-11-without-microsoft-account/</div>
     </div>
     <div class="license-meta">
       
@@ -421,18 +376,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/2023/12/16/install-windows-11-without-microsoft-account/" title="Install Windows11 Without Microsoft Account or Internet Access">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Install Windows11 Without Microsoft Account or Internet Access</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/2023/09/07/java-function/" title="Limitation of Java Lambdas">
-                        <span class="hidden-mobile">Limitation of Java Lambdas</span>
+                      <a href="/blog/2023/12/16/daily-use-of-gpg/" title="Daily Use of GPG">
+                        <span class="hidden-mobile">Daily Use of GPG</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

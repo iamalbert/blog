@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Install Windows11 Without Microsoft Account or Internet Access</title>
+    <link href="/blog/2023/12/16/install-windows-11-without-microsoft-account/"/>
+    <url>/blog/2023/12/16/install-windows-11-without-microsoft-account/</url>
+    
+    <content type="html"><![CDATA[<p>Starting from Windows11, Microsoft require you to connect to Internet and log-in your Microsoft account during installation.</p><p>To bypass that:</p><ol><li><p>Make sure the machine is not conncted to Ethernet.</p></li><li><p>Press <code>Shift</code> + <code>F10</code> and you should see a CMD terminal pops up.</p></li><li><p>Type <code>oobe\bypassnro</code> and press Enter.</p></li><li><p>The computer will reboot and restart the installation. This time there would be an “I don’t have Internet” option, and we can create a local account instead of log-in to Microsoft.</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>privacy &amp; anonymity</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Daily Use of GPG</title>
     <link href="/blog/2023/12/16/daily-use-of-gpg/"/>
     <url>/blog/2023/12/16/daily-use-of-gpg/</url>
