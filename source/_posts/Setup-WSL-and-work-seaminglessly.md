@@ -21,7 +21,6 @@ generateResolvConf = false
 Reboot computer and edit `/etc/resolv.conf`
 
 ```conf
-# /etc/resolv.conf
 nameserver 9.9.9.9
 nameserver 1.1.1.1
 ```
@@ -31,7 +30,6 @@ nameserver 1.1.1.1
 Edit `/etc/wsl.conf` and add
 
 ```conf
-# /etc/wsl.conf
 [automount]
 enabled = true 
 # C-drive would be mounted to /c, rather than the default /mnt/c. 
