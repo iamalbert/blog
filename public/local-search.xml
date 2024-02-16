@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Setup WSL and work seaminglessly</title>
+    <link href="/blog/2024/02/16/Setup-WSL-and-work-seaminglessly/"/>
+    <url>/blog/2024/02/16/Setup-WSL-and-work-seaminglessly/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h1><p>Edit <code>/etc/wsl.conf</code> and add</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs conf">[network]<br>generateResolvConf = false<br></code></pre></td></tr></table></figure><p>Reboot computer and edit <code>/etc/resolv.conf</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs conf"># /etc/resolv.conf<br>nameserver 9.9.9.9<br>nameserver 1.1.1.1<br></code></pre></td></tr></table></figure><h1 id="File-system"><a href="#File-system" class="headerlink" title="File system"></a>File system</h1><p>Edit <code>/etc/wsl.conf</code> and add</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs conf"># /etc/wsl.conf<br>[automount]<br>enabled = true <br># C-drive would be mounted to /c, rather than the default /mnt/c. <br>root = /<br></code></pre></td></tr></table></figure><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol><li><a href="https://learn.microsoft.com/en-us/windows/wsl/wsl-config">https://learn.microsoft.com/en-us/windows/wsl/wsl-config</a></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>programming</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>windows</tag>
+      
+      <tag>WSL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Install Windows11 Without Microsoft Account or Internet Access</title>
     <link href="/blog/2023/12/16/install-windows-11-without-microsoft-account/"/>
     <url>/blog/2023/12/16/install-windows-11-without-microsoft-account/</url>

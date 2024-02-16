@@ -1,11 +1,13 @@
 ---
 title: Setup WSL and work seaminglessly
-categories:
-    - programming
 tags:
-    - windows
-    - WSL
+  - windows
+  - WSL
+categories:
+  - programming
+date: 2024-02-16 18:21:10
 ---
+
 
 # Network
 
