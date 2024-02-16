@@ -5,7 +5,7 @@ tags:
 
 
 ```sh
-sudo apt install -y libssl-dev
+sudo apt install -y libssl-dev gcc make
 
 # optional packages
 sudo apt install -y libbz2-dev libncurses-dev libreadline-dev  libffi-dev libsqlite3-dev liblzma-dev tk-dev
