@@ -16,23 +16,21 @@
   <meta name="author" content="Wenlih Chuang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="NetworkEdit &#x2F;etc&#x2F;wsl.conf and add 12[network]generateResolvConf &#x3D; false  Reboot computer and edit &#x2F;etc&#x2F;resolv.conf 12nameserver 9.9.9.9nameserver 1.1.1.1  File systemEdit &#x2F;etc&#x2F;wsl.conf and add 1234[au">
+    <meta name="description" content="Install pyenvhttps:&#x2F;&#x2F;github.com&#x2F;pyenv&#x2F;pyenv Install dependencies to compile python1234sudo apt install -y libssl-dev gcc make# Optional packagessudo apt install -y libbz2-dev libncurses-dev libreadlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Setup WSL and work seaminglessly">
-<meta property="og:url" content="https://iamalbert.github.io/blog/2024/02/16/Setup-WSL-and-work-seaminglessly/index.html">
+<meta property="og:title" content="Managing Python environment with Pyenv">
+<meta property="og:url" content="https://iamalbert.github.io/blog/2025/01/07/Managing-Python-environment/index.html">
 <meta property="og:site_name" content="Albert&#39;s Blog">
-<meta property="og:description" content="NetworkEdit &#x2F;etc&#x2F;wsl.conf and add 12[network]generateResolvConf &#x3D; false  Reboot computer and edit &#x2F;etc&#x2F;resolv.conf 12nameserver 9.9.9.9nameserver 1.1.1.1  File systemEdit &#x2F;etc&#x2F;wsl.conf and add 1234[au">
+<meta property="og:description" content="Install pyenvhttps:&#x2F;&#x2F;github.com&#x2F;pyenv&#x2F;pyenv Install dependencies to compile python1234sudo apt install -y libssl-dev gcc make# Optional packagessudo apt install -y libbz2-dev libncurses-dev libreadlin">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-02-16T10:21:10.000Z">
-<meta property="article:modified_time" content="2024-10-12T06:20:24.044Z">
+<meta property="article:published_time" content="2025-01-07T14:47:18.000Z">
+<meta property="article:modified_time" content="2025-01-07T14:47:18.252Z">
 <meta property="article:author" content="Wenlih Chuang">
-<meta property="article:tag" content="windows">
-<meta property="article:tag" content="WSL">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Setup WSL and work seaminglessly - Albert&#39;s Blog</title>
+  <title>Managing Python environment with Pyenv - Albert&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -186,7 +184,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Setup WSL and work seaminglessly</span>
+            <span id="subtitle">Managing Python environment with Pyenv</span>
           
         </div>
 
@@ -197,8 +195,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-02-16 18:21" pubdate>
-          February 16, 2024 pm
+        <time datetime="2025-01-07 22:47" pubdate>
+          January 7, 2025 pm
         </time>
       </span>
     
@@ -209,7 +207,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          323 words
+          559 words
         
       </span>
     
@@ -220,7 +218,7 @@
         
         
         
-          3 mins
+          5 mins
         
       </span>
     
@@ -270,24 +268,23 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Setup WSL and work seaminglessly</h1>
+            <h1 id="seo-header">Managing Python environment with Pyenv</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h1><p>Edit <code>/etc/wsl.conf</code> and add</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs conf">[network]<br>generateResolvConf = false<br></code></pre></td></tr></table></figure>
+                <h1 id="Install-pyenv"><a href="#Install-pyenv" class="headerlink" title="Install pyenv"></a>Install <code>pyenv</code></h1><p><a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv">https://github.com/pyenv/pyenv</a></p>
+<h1 id="Install-dependencies-to-compile-python"><a href="#Install-dependencies-to-compile-python" class="headerlink" title="Install dependencies to compile python"></a>Install dependencies to compile python</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt install -y libssl-dev gcc make<br><br><span class="hljs-comment"># Optional packages</span><br>sudo apt install -y libbz2-dev libncurses-dev libreadline-dev  libffi-dev libsqlite3-dev liblzma-dev tk-dev<br></code></pre></td></tr></table></figure>
 
-<p>Reboot computer and edit <code>/etc/resolv.conf</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs conf">nameserver 9.9.9.9<br>nameserver 1.1.1.1<br></code></pre></td></tr></table></figure>
+<h1 id="Install-standalone-python-versions"><a href="#Install-standalone-python-versions" class="headerlink" title="Install standalone python versions"></a>Install standalone python versions</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">pyenv install 3.13<br></code></pre></td></tr></table></figure>
 
-<h1 id="File-system"><a href="#File-system" class="headerlink" title="File system"></a>File system</h1><p>Edit <code>/etc/wsl.conf</code> and add</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs conf">[automount]<br>enabled = true <br># C-drive would be mounted to /c, rather than the default /mnt/c. <br>root = /<br></code></pre></td></tr></table></figure>
+<h2 id="Use-virtual-env"><a href="#Use-virtual-env" class="headerlink" title="Use virtual env"></a>Use virtual env</h2><p>For example, create a new virtual env call <code>ml</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">pyenv virtualenv 3.13 ml<br>pyenv activate ml<br>pyenv deactivate<br></code></pre></td></tr></table></figure>
 
+<h1 id="Automatically-switch-python-based-on-directory"><a href="#Automatically-switch-python-based-on-directory" class="headerlink" title="Automatically switch python based on directory"></a>Automatically switch python based on directory</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">pyenv <span class="hljs-built_in">local</span> ml<br></code></pre></td></tr></table></figure>
 
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows/wsl/wsl-config">https://learn.microsoft.com/en-us/windows/wsl/wsl-config</a></li>
-</ol>
+<p>This will create a file <code>.python-version</code> under current working directory. The content of the file is simply the name of the version (or virtualenv).</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ml<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -296,36 +293,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/blog/categories/programming/" class="category-chain-item">programming</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/blog/tags/windows/" class="print-no-link">#windows</a>
-      
-        <a href="/blog/tags/WSL/" class="print-no-link">#WSL</a>
-      
-    </div>
   
 </div>
 
@@ -335,8 +302,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Setup WSL and work seaminglessly</div>
-      <div>https://iamalbert.github.io/blog/2024/02/16/Setup-WSL-and-work-seaminglessly/</div>
+      <div>Managing Python environment with Pyenv</div>
+      <div>https://iamalbert.github.io/blog/2025/01/07/Managing-Python-environment/</div>
     </div>
     <div class="license-meta">
       
@@ -348,7 +315,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>February 16, 2024</div>
+          <div>January 7, 2025</div>
         </div>
       
       
@@ -380,18 +347,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/2025/01/07/Managing-Python-environment/" title="Managing Python environment with Pyenv">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Managing Python environment with Pyenv</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/2023/12/16/install-windows-11-without-microsoft-account/" title="Install Windows11 Without Microsoft Account or Internet Access">
-                        <span class="hidden-mobile">Install Windows11 Without Microsoft Account or Internet Access</span>
+                      <a href="/blog/2024/02/16/Setup-WSL-and-work-seaminglessly/" title="Setup WSL and work seaminglessly">
+                        <span class="hidden-mobile">Setup WSL and work seaminglessly</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
