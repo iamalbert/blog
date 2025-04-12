@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>Basic linux env setup</title>
+    <link href="/blog/2025/04/12/basic-linux-env-setup/"/>
+    <url>/blog/2025/04/12/basic-linux-env-setup/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">apt update<br>apt install -y vim tmux htop zsh curl wget net-tools openssh-client git jq unzip gnupg<br><br><span class="hljs-built_in">mkdir</span> ~/.bin<br></code></pre></td></tr></table></figure><h1 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sh -c <span class="hljs-string">&quot;<span class="hljs-subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span><br></code></pre></td></tr></table></figure><p>Modify <code>~/.zshrc</code></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sh">plugins=(git python docker docker-compose ssh-agent command-not-found common-aliases tmux)<br><span class="hljs-built_in">zstyle</span> :omz:plugins:ssh-agent lazy <span class="hljs-built_in">yes</span> <span class="hljs-comment">#allows to enter the password only on first use</span><br><br><br><span class="hljs-comment"># End of file</span><br><br><span class="hljs-built_in">setopt</span> noincappendhistory<br><span class="hljs-built_in">setopt</span> nosharehistory<br><br><span class="hljs-built_in">export</span> PATH=<span class="hljs-string">&quot;<span class="hljs-variable">$USER</span>/.bin:<span class="hljs-variable">$PATH</span>&quot;</span><br></code></pre></td></tr></table></figure><h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">curl -fsSL https://get.docker.com  | sh<br>sudo groupadd docker &amp;&amp; usermod -aG docker <span class="hljs-variable">$USER</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Managing Python environment with Pyenv</title>
     <link href="/blog/2025/01/07/Managing-Python-environment/"/>
     <url>/blog/2025/01/07/Managing-Python-environment/</url>
