@@ -7,7 +7,7 @@ title: Albert's Blog
 subtitle: '隨筆'
 description: ''
 keywords:
-author: Wenlih Chuang
+author: Albert
 language: en
 timezone: ''
 
@@ -98,6 +98,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: fluid
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
