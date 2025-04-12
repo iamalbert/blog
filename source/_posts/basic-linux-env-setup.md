@@ -5,8 +5,8 @@ tags:
 ---
 
 ```sh
-apt update
-apt install -y vim tmux htop zsh curl wget net-tools openssh-client git jq unzip gnupg
+sudo apt update
+sudo apt install -y vim tmux htop zsh curl wget net-tools openssh-client git jq unzip gnupg
 
 mkdir ~/.bin
 ```
