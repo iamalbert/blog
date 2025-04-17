@@ -62,6 +62,7 @@ EOF
 
 ```sh
 curl -fsSL https://get.docker.com  | sh
-sudo groupadd docker && usermod -aG docker $USER
+sudo groupadd docker 
+sudo usermod -aG docker $USER
 ```
 
